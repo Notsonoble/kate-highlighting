@@ -40,6 +40,7 @@
 			<item>speed</item>
 			<item>partition</item>
 			<item>duplex</item>
+			<item>web</item>
 		</list>
 		<list name="options">
 			<item>tagged</item>
@@ -77,7 +78,9 @@
 				<Float attribute="Decimal" context="#stay"/>
 				<RegExpr String="\$[A-Za-z0-9_?{}!]+" attribute="Parameter" context="#stay"/>
 				<RegExpr String="\[(.*?)\]" attribute="String" context="#stay"/>
-				<RegExpr String="\-\b([1-9]|[123][0-9]|4[0-8])\b" attribute="Decimal" context="#stay"/>
+				<RegExpr String="\-\b([1-9]|[123][0-9]|4[0-8])\b" attribute="lowport" context="#stay"/>
+				<RegExpr String="\-\b(49|5[0-9]|60)\b" attribute="highport" context="#stay"/>
+				<RegExpr String="\:\b(49|5[0-9]|60)\b" attribute="highport" context="#stay"/>
 				<RangeDetect char="&quot;" char1="&quot;" attribute="String" context="#stay"/>
 				<AnyChar String="|&lt;&gt;=;" attribute="Operator" context="#stay"/>
 				<DetectChar char="'" attribute="String" context="Single Quote"/>
@@ -97,6 +100,8 @@
 			<itemData name="Normal Text" defStyleNum="dsNormal"/>
 			<itemData name="Keyword" defStyleNum="dsKeyword"/>
 			<itemData name="Decimal" defStyleNum="dsDecVal"/>
+			<itemData name="lowport" defStyleNum="dsDecVal"/>
+			<itemData name="highport" defStyleNum="dsDecVal" bold="true"/>
 			<itemData name="String" defStyleNum="dsString"/>
 			<itemData name="Comment" defStyleNum="dsComment"/>
 			<itemData name="Substitution" defStyleNum="dsOthers"/>
