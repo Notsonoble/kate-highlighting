@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language>
-<language name="EXOS" version="1" kateversion="6.0" section="Configuration" extensions="*.cis" mimetype="text/EXOS" author="Noble Hays" license="currently unliscenced">
+<language name="EXOS" version="1" kateversion="6.0" section="Configuration" extensions="*.exostxt, *.exos.txt" mimetype="text/EXOS" author="Noble Hays" license="currently unliscenced">
 	<highlighting>
 		<list name="commands">
 			<item>configure</item>
@@ -24,12 +24,44 @@
 			<item>dns-client</item>
 			<item>failsafe-account</item>
 			<item>snmp</item>
+			<item>snmpv3</item>
 			<!--    enable/disable parameters    -->
+			<item>access-list</item>
 			<item>diffserv</item>
 			<item>telent</item>
 			<item>jumbo-frame</item>
+			<item>dot1p</item>
+			<item>sharing</item>
+			<item>ssh</item>
+			<item>ssh2</item>
+			<item>ssl</item>
+			<item>radius</item>
+			<item>radius-accounting</item>
+			<item>speed</item>
+			<item>partition</item>
+			<item>duplex</item>
 		</list>
 		<list name="options">
+			<item>tagged</item>
+			<item>untagged</item>
+			<item>http</item>
+			<item>https</item>
+			<item>lacp</item>
+			<item>address-based</item>
+			<item>full</item>
+			<item>half</item>
+			<item>netlogin</item>
+			<item>round-robin</item>
+			<item>mgmt-access</item>
+			<item>auto</item>
+			<!-- to create "auto on/auto off" -->
+			<item>on</item>
+			<item>off</item>
+			<item>1x100G</item>
+			<item>1x40G</item>
+			<item>2x50G</item>
+			<item>4x10G</item>
+			<item>4x25G</item>
 		</list>
 		<contexts>
 			<context name="Base" attribute="Normal Text" lineEndContext="#stay">
@@ -42,26 +74,23 @@
 				<keyword String="parameters" attribute="Parameter" context="#stay"/>
 				<keyword String="options" attribute="Keyword" context="#stay"/>
 				<Int attribute="Decimal" context="#stay"/>
+				<Float attribute="Decimal" context="#stay"/>
 				<RegExpr String="\$[A-Za-z0-9_?{}!]+" attribute="Parameter" context="#stay"/>
+				<RegExpr String="\[(.*?)\]" attribute="String" context="#stay"/>
+				<RegExpr String="\-\b([1-9]|[123][0-9]|4[0-8])\b" attribute="Decimal" context="#stay"/>
 				<RangeDetect char="&quot;" char1="&quot;" attribute="String" context="#stay"/>
 				<AnyChar String="|&lt;&gt;=;" attribute="Operator" context="#stay"/>
 				<DetectChar char="'" attribute="String" context="Single Quote"/>
-				<DetectChar char="`" attribute="Substitution" context="Substitution"/>
 				<Detect2Chars attribute="Normal Text" context="#stay" char="\" char1="#"/>
-				<AnyChar String="#!" attribute="Comment" context="Comment"/>
+				<AnyChar String="#" attribute="Comment" context="Comment"/>
 			</context>
 			<context name="Single Quote" attribute="String" lineEndContext="#stay">
 				<Detect2Chars char="\" char1="\" attribute="String" context="#stay"/>
 				<Detect2Chars char="\" char1="'" attribute="String" context="#stay"/>
 				<DetectChar char="'" attribute="String" context="#pop"/>
 			</context>
-			<context name="Substitution" attribute="Substitution" lineEndContext="#stay">
-				<Detect2Chars char="\" char1="\" attribute="String" context="#stay"/>
-				<Detect2Chars char="\" char1="`" attribute="String" context="#stay"/>
-				<DetectChar char="`" attribute="Substitution" context="#pop"/>
-			</context>
 			<context name="Comment" attribute="Comment" lineEndContext="#pop">
-				<IncludeRules context="##Comments"/>
+				<IncludeRules context="Comments"/>
 			</context>
 		</contexts>
 		<itemDatas>
@@ -78,9 +107,9 @@
 	</highlighting>
 	<general>
 		<comments>
-			<comment name="singleLine" start="!"/>
+			<comment name="singleLine" start="##"/>
 		</comments>
-		<keywords casesensitive="0"/>
+		<keywords casesensitive="0" weakDeliminator="-"/>
 	</general>
 </language>
 <!-- kate: replace-tabs off; -->
