@@ -45,7 +45,7 @@
 				<RegExpr String="\[(.*?)\]" attribute="String" context="#stay"/>
 				<RangeDetect char="&quot;" char1="&quot;" attribute="String" context="#stay"/>
 				<DetectChar char="'" attribute="String" context="Single Quote"/>
-<!-- Multi-word Skills -->
+				<!-- Multi-word Skills -->
 				<StringDetect String="Disable Device" attribute="Skill" context="#stay"/>
 				<StringDetect String="Handle Animal" attribute="Skill" context="#stay"/>
 				<StringDetect String="Sense Motive" attribute="Skill" context="#stay"/>
@@ -72,6 +72,37 @@
 			<itemData name="String" defStyleNum="dsString"/>
 			<itemData name="Comment" defStyleNum="dsComment"/>
 			<itemData name="Skill" defStyleNum="dsInformation"/>
+			<itemData name="DefaultNormal" defStyleNum="dsNormal"/>
+			<itemData name="DefaultKeyword" defStyleNum="dsKeyword"/>
+			<itemData name="DefaultFunction" defStyleNum="dsFunction"/>
+			<itemData name="DefaultVariable" defStyleNum="dsVariable"/>
+			<itemData name="DefaultControlFlow" defStyleNum="dsControlFlow"/>
+			<itemData name="DefaultOperator" defStyleNum="dsOperator"/>
+			<itemData name="DefaultBuiltIn" defStyleNum="dsBuiltIn"/>
+			<itemData name="DefaultExtension" defStyleNum="dsExtension"/>
+			<itemData name="DefaultPreprocessor" defStyleNum="dsPreprocessor"/>
+			<itemData name="DefaultAttribute" defStyleNum="dsAttribute"/>
+			<itemData name="DefaultChar" defStyleNum="dsChar"/>
+			<itemData name="DefaultSpecialChar" defStyleNum="dsSpecialChar"/>
+			<itemData name="DefaultString" defStyleNum="dsString"/>
+			<itemData name="DefaultVerbatimString" defStyleNum="dsVerbatimString"/>
+			<itemData name="DefaultSpecialString" defStyleNum="dsSpecialString"/>
+			<itemData name="DefaultImport" defStyleNum="dsImport"/>
+			<itemData name="DefaultDataType" defStyleNum="dsDataType"/>
+			<itemData name="DefaultDecVal" defStyleNum="dsDecVal"/>
+			<itemData name="DefaultBaseN" defStyleNum="dsBaseN"/>
+			<itemData name="DefaultFloat" defStyleNum="dsFloat"/>
+			<itemData name="DefaultConstant" defStyleNum="dsConstant"/>
+			<itemData name="DefaultComment" defStyleNum="dsComment"/>
+			<itemData name="DefaultDocumentation" defStyleNum="dsDocumentation"/>
+			<itemData name="DefaultAnnotation" defStyleNum="dsAnnotation"/>
+			<itemData name="DefaultCommentVar" defStyleNum="dsCommentVar"/>
+			<itemData name="DefaultRegionMarker" defStyleNum="dsRegionMarker"/>
+			<itemData name="DefaultInformation" defStyleNum="dsInformation"/>
+			<itemData name="DefaultWarning" defStyleNum="dsWarning"/>
+			<itemData name="DefaultAlert" defStyleNum="dsAlert"/>
+			<itemData name="DefaultError" defStyleNum="dsError"/>
+			<itemData name="DefaultOther" defStyleNum="dsOthers"/>
 		</itemDatas>
 	</highlighting>
 	<general>
