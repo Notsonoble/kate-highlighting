@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE language>
-<language name="EXOS" version="1" kateversion="6.0" section="Configuration" extensions="*.exostxt, *.exos.txt" mimetype="text/EXOS" author="Noble Hays" license="currently unliscenced">
+<language name="EXOS" version="1" kateversion="5.0" section="Configuration" extensions="*.exostxt, *.exos.txt" mimetype="text/EXOS" author="Noble Hays" license="currently unliscenced">
 	<highlighting>
 		<list name="commands">
 			<item>configure</item>

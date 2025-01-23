@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language>
+<language name="Pathfinder 1e Statblock" version="1" kateversion="5.0" section="Gaming" extensions="*.pf1txt, *.pf1.txt" mimetype="text/PF1S" author="Noble Hays" license="currently unliscenced">
+	<highlighting>
+		<list name="sections">
+			<item>OFFENSE</item>
+			<item>DEFENSE</item>
+			<item>STATISTICS</item>
+		</list>
+		<list name="abilities">
+			<item>STR</item>
+			<item>DEX</item>
+			<item>CON</item>
+			<item>INT</item>
+			<item>WIS</item>
+			<item>CHA</item>
+		</list>
+		<list name="skills">
+			<item>Acrobatics</item>
+			<item>Appraise</item>
+			<item>Bluff</item>
+			<item>Climb</item>
+			<item>Craft</item>
+			<item>Diplomacy</item>
+			<item>Disguise</item>
+			<item>Escape Artist</item>
+			<item>Fly</item>
+			<item>Heal</item>
+			<item>Intimidate</item>
+			<item>Linguistics</item>
+			<item>Perception</item>
+			<item>Ride</item>
+			<item>Spellcraft</item>
+			<item>Stealth</item>
+			<item>Survival</item>
+			<item>Swim</item>
+		</list>
+		<contexts>
+			<context name="Base" attribute="Normal Text" lineEndContext="#stay">
+				<keyword String="sections" attribute="Section" context="#stay"/>
+				<keyword String="abilities" attribute="Ability" context="#stay"/>
+				<keyword String="skills" attribute="Skill" context="#stay"/>
+				<Int attribute="Decimal" context="#stay"/>
+				<Float attribute="Decimal" context="#stay"/>
+				<RegExpr String="\[(.*?)\]" attribute="String" context="#stay"/>
+				<RangeDetect char="&quot;" char1="&quot;" attribute="String" context="#stay"/>
+				<DetectChar char="'" attribute="String" context="Single Quote"/>
+<!-- Multi-word Skills -->
+				<StringDetect String="Disable Device" attribute="Skill" context="#stay"/>
+				<StringDetect String="Handle Animal" attribute="Skill" context="#stay"/>
+				<StringDetect String="Sense Motive" attribute="Skill" context="#stay"/>
+				<StringDetect String="Sleight of Hand" attribute="Skill" context="#stay"/>
+				<StringDetect String="Use Magic Device" attribute="Skill" context="#stay"/>
+				<RegExpr String="Knowledge\s\([A-Za-z]+\)" attribute="Skill" context="#stay"/>
+				<RegExpr String="Perform\s\([A-Za-z]+\)" attribute="Skill" context="#stay"/>
+				<RegExpr String="Profession\s\([A-Za-z]+\)" attribute="Skill" context="#stay"/>
+			</context>
+			<context name="Single Quote" attribute="String" lineEndContext="#stay">
+				<Detect2Chars char="\" char1="\" attribute="String" context="#stay"/>
+				<Detect2Chars char="\" char1="'" attribute="String" context="#stay"/>
+				<DetectChar char="'" attribute="String" context="#pop"/>
+			</context>
+			<context name="Comment" attribute="Comment" lineEndContext="#pop">
+				<IncludeRules context="Comments"/>
+			</context>
+		</contexts>
+		<itemDatas>
+			<itemData name="Normal Text" defStyleNum="dsNormal"/>
+			<itemData name="Section" defStyleNum="dsKeyword"/>
+			<itemData name="Ability" defStyleNum="dsVariable"/>
+			<itemData name="Decimal" defStyleNum="dsDecVal"/>
+			<itemData name="String" defStyleNum="dsString"/>
+			<itemData name="Comment" defStyleNum="dsComment"/>
+			<itemData name="Skill" defStyleNum="dsInformation"/>
+		</itemDatas>
+	</highlighting>
+	<general>
+		<comments>
+		</comments>
+		<keywords casesensitive="1" weakDeliminator=""/>
+	</general>
+</language>
+<!-- kate: replace-tabs off; -->
